@@ -52,6 +52,9 @@ android {
             'excludeSystemAlertWindow': 'true',
             'excludeInstallPackages': 'true'
         ]
+
+        // Specify the ProGuard configuration file for consumers
+        consumerProguardFiles 'consumer-proguard-rules.pro'
     }
     
     // For library projects, we need to handle the manifest differently
