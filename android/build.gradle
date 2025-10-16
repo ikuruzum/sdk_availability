@@ -96,10 +96,10 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.google.android.gms:play-services-base:18.0.1'
-    implementation 'com.huawei.hms:base:5.2.0.300'
-    implementation 'com.huawei.hms:stats:5.2.0.300'
-    implementation 'com.huawei.hms:push:5.2.0.300'
-    implementation 'com.huawei.hms:hwid:5.2.0.300'
+    implementation 'com.google.android.gms:play-services-base:18.2.0'
+    implementation 'com.huawei.hms:base:6.10.0.300'
+    implementation 'com.huawei.hms:stats:6.10.0.300'
+    implementation 'com.huawei.hms:push:6.10.0.300'
+    implementation 'com.huawei.hms:hwid:6.10.0.300'
     implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
 }
