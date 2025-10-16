@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="devdox.connect.google_huawei_availability_example">
+    package="devdox.connect.sdk_availability_example">
    <application
-        android:label="google_huawei_availability_example"
+        android:label="sdk_availability_example"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

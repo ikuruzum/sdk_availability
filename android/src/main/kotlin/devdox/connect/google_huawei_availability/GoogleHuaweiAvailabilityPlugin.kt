@@ -1,4 +1,4 @@
-package devdox.connect.google_huawei_availability
+package devdox.connect.sdk_availability
 
 import android.content.Context
 import androidx.annotation.NonNull
@@ -20,7 +20,7 @@ class GoogleHuaweiAvailabilityPlugin: FlutterPlugin, MethodCallHandler, Activity
   private lateinit var context: Context
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "google_huawei_availability")
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "sdk_availability")
     channel.setMethodCallHandler(this)
     context = flutterPluginBinding.applicationContext
   }

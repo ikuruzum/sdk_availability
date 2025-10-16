@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:google_huawei_availability/google_huawei_availability.dart';
+import 'package:sdk_availability/sdk_availability.dart';
 
 void main() {
   runApp(const MyApp());

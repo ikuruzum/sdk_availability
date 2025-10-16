@@ -1,6 +1,6 @@
-# google_huawei_availability_example
+# sdk_availability_example
 
-Demonstrates how to use the google_huawei_availability plugin.
+Demonstrates how to use the sdk_availability plugin.
 
 ## Getting Started
 

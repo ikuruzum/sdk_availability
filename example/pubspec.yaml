@@ -1,5 +1,5 @@
-name: google_huawei_availability_example
-description: Demonstrates how to use the google_huawei_availability plugin.
+name: sdk_availability_example
+description: Demonstrates how to use the sdk_availability plugin.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -18,9 +18,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  google_huawei_availability:
+  sdk_availability:
     # When depending on this package from a real application you should use:
-    #   google_huawei_availability: ^x.y.z
+    #   sdk_availability: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints
     # The example app is bundled with the plugin so we use a path dependency on
     # the parent directory to use the current plugin's version.

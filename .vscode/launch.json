@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "google_huawei_availability",
+            "name": "sdk_availability",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "google_huawei_availability (profile mode)",
+            "name": "sdk_availability (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "google_huawei_availability (release mode)",
+            "name": "sdk_availability (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
