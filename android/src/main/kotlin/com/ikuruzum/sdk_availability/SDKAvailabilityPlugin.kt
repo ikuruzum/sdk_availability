@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.annotation.NonNull
 import com.google.android.gms.common.GoogleApiAvailability
 import com.huawei.hms.api.HuaweiApiAvailability
+
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -11,7 +12,9 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import java.lang.NumberFormatException
 
+/** SDKAvailabilityPlugin */
 class SDKAvailabilityPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   private lateinit var channel : MethodChannel
   private lateinit var context: Context
@@ -22,6 +25,7 @@ class SDKAvailabilityPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     context = flutterPluginBinding.applicationContext
   }
 
+ //Method Channel Call
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     when (call.method) {
         "isGoogleServiceAvailable" -> isGoogleServiceAvailable(result)
@@ -30,30 +34,39 @@ class SDKAvailabilityPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     }
   }
 
-  private fun isGoogleServiceAvailable(@NonNull result: Result) {
+  // Google Service
+  private fun isGoogleServiceAvailable(@NonNull result: Result){
     try {
-      val service = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context)
+      val service: Int = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context)
       result.success(service == com.google.android.gms.common.ConnectionResult.SUCCESS)
-    } catch (e: Exception) {
+    }catch (e:NumberFormatException){
       result.success(false)
     }
   }
 
-  private fun isHuaweiServiceAvailable(@NonNull result: Result) {
-    try {
-      val service = HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(context)
+ // Huawei Service
+  private fun isHuaweiServiceAvailable(@NonNull result: Result){
+    try{
+      val service:Int = HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(context)
       result.success(service == com.huawei.hms.api.ConnectionResult.SUCCESS)
-    } catch (e: Exception) {
+    }catch (e:NumberFormatException){
       result.success(false)
     }
   }
 
-  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
   }
 
-  override fun onAttachedToActivity(binding: ActivityPluginBinding) {}
-  override fun onDetachedFromActivity() {}
-  override fun onDetachedFromActivityForConfigChanges() {}
-  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {}
+  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+  }
+
+  override fun onDetachedFromActivityForConfigChanges() {
+  }
+
+  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+  }
+
+  override fun onDetachedFromActivity() {
+  }
 }
