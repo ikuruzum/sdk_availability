@@ -5,7 +5,7 @@ homepage: 'https://github.com/ikuruzum/sdk_availability'
 repository: 'https://github.com/ikuruzum/sdk_availability'
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=2.16.2 <4.0.0"
   flutter: ">=2.5.0"
 
 dependencies:
