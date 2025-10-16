@@ -28,11 +28,11 @@ class _MyAppState extends State<MyApp> {
   Future<void> checkService() async {
     // Google Service
     bool isGoogle =
-        await GoogleHuaweiAvailability.isGoogleServiceAvailable ?? false;
+        await SDKAvailability.isGoogleServiceAvailable ?? false;
 
     // Huawei Services
     bool isHuawei =
-        await GoogleHuaweiAvailability.isHuaweiServiceAvailable ?? false;
+        await SDKAvailability.isHuaweiServiceAvailable ?? false;
 
     if (!mounted) return;
 
