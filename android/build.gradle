@@ -46,7 +46,7 @@ android {
     defaultConfig {
         minSdkVersion 21
         
-        // Remove INSTALL_PACKAGES permission
+        // Manifest placeholders to handle permissions
         manifestPlaceholders = [
             'appAuthRedirectScheme': 'com.ikuruzum.sdk_availability',
             'excludeSystemAlertWindow': 'true',
@@ -54,11 +54,11 @@ android {
         ]
     }
     
-    // Remove INSTALL_PACKAGES permission from merged manifest
-    applicationVariants.all { variant ->
+    // For library projects, we need to handle the manifest differently
+    libraryVariants.all { variant ->
         variant.outputs.all { output ->
             output.processManifestProvider.get().doLast {
-                def manifestFile = new File("${buildDir}/intermediates/merged_manifests/${variant.name}/AndroidManifest.xml")
+                def manifestFile = new File("${buildDir}/intermediates/packaged_manifests/${variant.name}/AndroidManifest.xml")
                 if (manifestFile.exists()) {
                     def xml = new XmlSlurper().parse(manifestFile)
                     def usesPermissions = xml.'uses-permission'
