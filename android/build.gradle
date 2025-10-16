@@ -57,10 +57,14 @@ android {
     // This ensures the ProGuard rules are included in the published AAR
     buildTypes {
         release {
+            // Explicitly disable minification for release builds
+            minifyEnabled false
             // Include the ProGuard rules in the published AAR
             consumerProguardFiles 'consumer-proguard-rules.pro'
         }
         debug {
+            // Explicitly disable minification for debug builds
+            minifyEnabled false
             // Include the ProGuard rules in the published AAR for debug builds too
             consumerProguardFiles 'consumer-proguard-rules.pro'
         }
