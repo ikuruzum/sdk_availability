@@ -1,4 +1,4 @@
-package devdox.connect.sdk_availability_example
+package com.ikuruzum.sdk_availability_example
 
 import io.flutter.embedding.android.FlutterActivity
 

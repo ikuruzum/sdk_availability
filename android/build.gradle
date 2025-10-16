@@ -1,4 +1,4 @@
-group 'devdox.connect.sdk_availability'
+group 'com.ikuruzum.sdk_availability'
 version '1.0-SNAPSHOT'
 
 buildscript {

@@ -1,4 +1,4 @@
-package devdox.connect.sdk_availability
+package com.ikuruzum.sdk_availability
 
 import android.content.Context
 import androidx.annotation.NonNull
