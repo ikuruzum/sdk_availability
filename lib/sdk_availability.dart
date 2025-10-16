@@ -1,8 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/services.dart';
 
-class GoogleHuaweiAvailability {
+class SDKAvailability {
   /// Initialize the method channel
   static const MethodChannel _channel = MethodChannel('sdk_availability');
 
