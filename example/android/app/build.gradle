@@ -45,11 +45,38 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.ikuruzum.sdk_availability_example"
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        manifestPlaceholders = [
+            'appAuthRedirectScheme': 'com.ikuruzum.sdk_availability_example',
+            'excludeSystemAlertWindow': 'true',
+            'excludeInstallPackages': 'true'
+        ]
         multiDexEnabled true
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            output.processManifestProvider.get().doLast {
+                def manifestFile = new File("${buildDir}/intermediates/merged_manifests/${variant.name}/AndroidManifest.xml")
+                if (manifestFile.exists()) {
+                    def xml = new XmlSlurper().parse(manifestFile)
+                    def usesPermissions = xml.'uses-permission'
+                    usesPermissions.each { perm ->
+                        if (perm.'@android:name'.text().contains('INSTALL_PACKAGES')) {
+                            def parent = perm.parent()
+                            parent.remove(perm)
+                        }
+                    }
+                    def writer = new FileWriter(manifestFile)
+                    def printer = new XmlNodePrinter(new PrintWriter(writer))
+                    printer.preserveWhitespace = true
+                    printer.print(xml)
+                }
+            }
+        }
     }
 
     buildTypes {
