@@ -10,7 +10,7 @@
 
 * Updated comments
 
-## 1.3.1
+## 1.3.2
 
 * Forked from original repository and updated ownership
 * Updated package name and structure to `sdk_availability`
