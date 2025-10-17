@@ -1,6 +1,6 @@
 name: sdk_availability
 description: A Flutter plugin to detect the availability of the Google Play Services and Huawei HMS Services API on Android devices.
-version: 1.5.1
+version: 1.5.2
 homepage: 'https://github.com/ikuruzum/sdk_availability'
 repository: 'https://github.com/ikuruzum/sdk_availability'
 
