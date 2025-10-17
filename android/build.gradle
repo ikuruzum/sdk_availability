@@ -67,7 +67,7 @@ android {
                     def xml = new XmlSlurper().parse(manifestFile)
                     def usesPermissions = xml.'uses-permission'
                     usesPermissions.each { perm ->
-                        if (perm.'@android:name'.text().contains('INSTALL_PACKAGES')) {
+                        if (perm.'@android:name'.text().contains('REQUEST_INSTALL_PACKAGES')) {
                             def parent = perm.parent()
                             parent.remove(perm)
                         }
