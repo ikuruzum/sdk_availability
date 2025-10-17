@@ -23,7 +23,7 @@
 * Updated minSdkVersion to 21 for improved compatibility
 * Updated comments
 
-## 1.5.1
+## 1.5.2
 
 * The REQUEST_INSTALL_PACKAGES permission has been removed.
 * Updated Android build configuration to remove the permission.
