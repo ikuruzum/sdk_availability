@@ -57,29 +57,6 @@ android {
             minifyEnabled false
         }
     }
-    
-    // For library projects, we need to handle the manifest differently
-    libraryVariants.all { variant ->
-        variant.outputs.all { output ->
-            output.processManifestProvider.get().doLast {
-                def manifestFile = new File("${buildDir}/intermediates/packaged_manifests/${variant.name}/AndroidManifest.xml")
-                if (manifestFile.exists()) {
-                    def xml = new XmlSlurper().parse(manifestFile)
-                    def usesPermissions = xml.'uses-permission'
-                    usesPermissions.each { perm ->
-                        if (perm.'@android:name'.text().contains('REQUEST_INSTALL_PACKAGES')) {
-                            def parent = perm.parent()
-                            parent.remove(perm)
-                        }
-                    }
-                    def writer = new FileWriter(manifestFile)
-                    def printer = new XmlNodePrinter(new PrintWriter(writer))
-                    printer.preserveWhitespace = true
-                    printer.print(xml)
-                }
-            }
-        }
-    }
 }
 
 dependencies {
